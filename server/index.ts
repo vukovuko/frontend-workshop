@@ -1,8 +1,8 @@
 import express from 'express'
 import path from 'node:path'
 
-const PORT = Number(process.env.PORT) || 3000
-const isProd = process.env.NODE_ENV === 'production'
+const PORT = Number(process.env['PORT']) || 3000
+const isProd = process.env['NODE_ENV'] === 'production'
 
 const app = express()
 app.use(express.json())
