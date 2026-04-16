@@ -1,4 +1,3 @@
-# ─── Build stage ───
 FROM node:24-alpine AS build
 WORKDIR /app
 
@@ -8,7 +7,6 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# ─── Runtime stage ───
 FROM node:24-alpine AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
