@@ -19,6 +19,22 @@ function Home() {
             Debounce
           </Link>
         </li>
+        <li>
+          <Link
+            to="/tasks/tuple-length"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            1.1 Tuple Length
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/tasks/first-of-array"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            1.2 First of Array
+          </Link>
+        </li>
       </ul>
     </main>
   )

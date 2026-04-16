@@ -1,0 +1,2 @@
+// biome-ignore lint/suspicious/noExplicitAny: tuple pattern requires it
+export type First<T extends any[]> = T extends [infer F, ...any[]] ? F : never

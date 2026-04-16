@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
+import { Route as TasksFirstOfArrayIndexRouteImport } from './routes/tasks/first-of-array/index'
 import { Route as TasksDetectTypeIndexRouteImport } from './routes/tasks/detect-type/index'
 import { Route as TasksDebounceIndexRouteImport } from './routes/tasks/debounce/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksTupleLengthIndexRoute = TasksTupleLengthIndexRouteImport.update({
+  id: '/tasks/tuple-length/',
+  path: '/tasks/tuple-length/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksFirstOfArrayIndexRoute = TasksFirstOfArrayIndexRouteImport.update({
+  id: '/tasks/first-of-array/',
+  path: '/tasks/first-of-array/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksDetectTypeIndexRoute = TasksDetectTypeIndexRouteImport.update({
@@ -33,30 +45,54 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
+  '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/tasks/debounce': typeof TasksDebounceIndexRoute
   '/tasks/detect-type': typeof TasksDetectTypeIndexRoute
+  '/tasks/first-of-array': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
+  '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/tasks/debounce/' | '/tasks/detect-type/'
+  fullPaths:
+    | '/'
+    | '/tasks/debounce/'
+    | '/tasks/detect-type/'
+    | '/tasks/first-of-array/'
+    | '/tasks/tuple-length/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/tasks/debounce' | '/tasks/detect-type'
-  id: '__root__' | '/' | '/tasks/debounce/' | '/tasks/detect-type/'
+  to:
+    | '/'
+    | '/tasks/debounce'
+    | '/tasks/detect-type'
+    | '/tasks/first-of-array'
+    | '/tasks/tuple-length'
+  id:
+    | '__root__'
+    | '/'
+    | '/tasks/debounce/'
+    | '/tasks/detect-type/'
+    | '/tasks/first-of-array/'
+    | '/tasks/tuple-length/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   TasksDebounceIndexRoute: typeof TasksDebounceIndexRoute
   TasksDetectTypeIndexRoute: typeof TasksDetectTypeIndexRoute
+  TasksFirstOfArrayIndexRoute: typeof TasksFirstOfArrayIndexRoute
+  TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +102,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/tuple-length/': {
+      id: '/tasks/tuple-length/'
+      path: '/tasks/tuple-length'
+      fullPath: '/tasks/tuple-length/'
+      preLoaderRoute: typeof TasksTupleLengthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/first-of-array/': {
+      id: '/tasks/first-of-array/'
+      path: '/tasks/first-of-array'
+      fullPath: '/tasks/first-of-array/'
+      preLoaderRoute: typeof TasksFirstOfArrayIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/detect-type/': {
@@ -89,6 +139,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   TasksDebounceIndexRoute: TasksDebounceIndexRoute,
   TasksDetectTypeIndexRoute: TasksDetectTypeIndexRoute,
+  TasksFirstOfArrayIndexRoute: TasksFirstOfArrayIndexRoute,
+  TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
