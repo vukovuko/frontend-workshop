@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import problemMd from './problem.md?raw'
+import solutionSource from './solution.ts?raw'
 import { Markdown } from '../../../components/Markdown'
+import { SourceCode } from '../../../components/SourceCode'
 import { Demo } from './demo'
 
 export const Route = createFileRoute('/tasks/debounce/')({
@@ -29,8 +31,13 @@ function DebounceTask() {
 
       <hr className="my-10 border-border" />
 
-      <section>
+      <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Solution</h2>
+        <SourceCode source={solutionSource} />
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Demo</h2>
         <Demo />
       </section>
     </main>
