@@ -24,7 +24,7 @@ function Home() {
             to="/tasks/tuple-length"
             className="text-primary hover:underline underline-offset-4"
           >
-            1.1 Tuple Length
+            Tuple Length
           </Link>
         </li>
         <li>
@@ -32,7 +32,7 @@ function Home() {
             to="/tasks/first-of-array"
             className="text-primary hover:underline underline-offset-4"
           >
-            1.2 First of Array
+            First of Array
           </Link>
         </li>
       </ul>

@@ -1,4 +1,4 @@
-# 1.2 First of Array
+# First of Array
 
 ## Problem
 
