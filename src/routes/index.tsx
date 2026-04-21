@@ -86,6 +86,43 @@ function Home() {
             Promise
           </Link>
         </li>
+        <li>
+          <Link
+            to="/tasks/make-optional"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            Make Optional
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/tasks/make-readonly"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            Make Readonly
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/tasks/pick-by-type"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            Pick By Type
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/tasks/omit-by-type"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            Omit By Type
+          </Link>
+        </li>
+        <li>
+          <Link to="/tasks/math-utils" className="text-primary hover:underline underline-offset-4">
+            Math Utils
+          </Link>
+        </li>
       </ul>
     </main>
   )

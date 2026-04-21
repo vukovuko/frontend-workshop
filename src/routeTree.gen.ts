@@ -15,9 +15,14 @@ import { Route as TasksTupleToObjectIndexRouteImport } from './routes/tasks/tupl
 import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
 import { Route as TasksThrottleIndexRouteImport } from './routes/tasks/throttle/index'
 import { Route as TasksStringifyIndexRouteImport } from './routes/tasks/stringify/index'
+import { Route as TasksPickByTypeIndexRouteImport } from './routes/tasks/pick-by-type/index'
+import { Route as TasksOmitByTypeIndexRouteImport } from './routes/tasks/omit-by-type/index'
 import { Route as TasksMyReadonlyIndexRouteImport } from './routes/tasks/my-readonly/index'
 import { Route as TasksMyPromiseIndexRouteImport } from './routes/tasks/my-promise/index'
 import { Route as TasksMyPickIndexRouteImport } from './routes/tasks/my-pick/index'
+import { Route as TasksMathUtilsIndexRouteImport } from './routes/tasks/math-utils/index'
+import { Route as TasksMakeReadonlyIndexRouteImport } from './routes/tasks/make-readonly/index'
+import { Route as TasksMakeOptionalIndexRouteImport } from './routes/tasks/make-optional/index'
 import { Route as TasksFirstOfArrayIndexRouteImport } from './routes/tasks/first-of-array/index'
 import { Route as TasksEs5ExtendsIndexRouteImport } from './routes/tasks/es5-extends/index'
 import { Route as TasksDetectTypeIndexRouteImport } from './routes/tasks/detect-type/index'
@@ -54,6 +59,16 @@ const TasksStringifyIndexRoute = TasksStringifyIndexRouteImport.update({
   path: '/tasks/stringify/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksPickByTypeIndexRoute = TasksPickByTypeIndexRouteImport.update({
+  id: '/tasks/pick-by-type/',
+  path: '/tasks/pick-by-type/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksOmitByTypeIndexRoute = TasksOmitByTypeIndexRouteImport.update({
+  id: '/tasks/omit-by-type/',
+  path: '/tasks/omit-by-type/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksMyReadonlyIndexRoute = TasksMyReadonlyIndexRouteImport.update({
   id: '/tasks/my-readonly/',
   path: '/tasks/my-readonly/',
@@ -67,6 +82,21 @@ const TasksMyPromiseIndexRoute = TasksMyPromiseIndexRouteImport.update({
 const TasksMyPickIndexRoute = TasksMyPickIndexRouteImport.update({
   id: '/tasks/my-pick/',
   path: '/tasks/my-pick/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMathUtilsIndexRoute = TasksMathUtilsIndexRouteImport.update({
+  id: '/tasks/math-utils/',
+  path: '/tasks/math-utils/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMakeReadonlyIndexRoute = TasksMakeReadonlyIndexRouteImport.update({
+  id: '/tasks/make-readonly/',
+  path: '/tasks/make-readonly/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMakeOptionalIndexRoute = TasksMakeOptionalIndexRouteImport.update({
+  id: '/tasks/make-optional/',
+  path: '/tasks/make-optional/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksFirstOfArrayIndexRoute = TasksFirstOfArrayIndexRouteImport.update({
@@ -102,9 +132,14 @@ export interface FileRoutesByFullPath {
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
   '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/make-optional/': typeof TasksMakeOptionalIndexRoute
+  '/tasks/make-readonly/': typeof TasksMakeReadonlyIndexRoute
+  '/tasks/math-utils/': typeof TasksMathUtilsIndexRoute
   '/tasks/my-pick/': typeof TasksMyPickIndexRoute
   '/tasks/my-promise/': typeof TasksMyPromiseIndexRoute
   '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
+  '/tasks/omit-by-type/': typeof TasksOmitByTypeIndexRoute
+  '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
@@ -118,9 +153,14 @@ export interface FileRoutesByTo {
   '/tasks/detect-type': typeof TasksDetectTypeIndexRoute
   '/tasks/es5-extends': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/make-optional': typeof TasksMakeOptionalIndexRoute
+  '/tasks/make-readonly': typeof TasksMakeReadonlyIndexRoute
+  '/tasks/math-utils': typeof TasksMathUtilsIndexRoute
   '/tasks/my-pick': typeof TasksMyPickIndexRoute
   '/tasks/my-promise': typeof TasksMyPromiseIndexRoute
   '/tasks/my-readonly': typeof TasksMyReadonlyIndexRoute
+  '/tasks/omit-by-type': typeof TasksOmitByTypeIndexRoute
+  '/tasks/pick-by-type': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify': typeof TasksStringifyIndexRoute
   '/tasks/throttle': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
@@ -135,9 +175,14 @@ export interface FileRoutesById {
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
   '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/make-optional/': typeof TasksMakeOptionalIndexRoute
+  '/tasks/make-readonly/': typeof TasksMakeReadonlyIndexRoute
+  '/tasks/math-utils/': typeof TasksMathUtilsIndexRoute
   '/tasks/my-pick/': typeof TasksMyPickIndexRoute
   '/tasks/my-promise/': typeof TasksMyPromiseIndexRoute
   '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
+  '/tasks/omit-by-type/': typeof TasksOmitByTypeIndexRoute
+  '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
@@ -153,9 +198,14 @@ export interface FileRouteTypes {
     | '/tasks/detect-type/'
     | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
+    | '/tasks/make-optional/'
+    | '/tasks/make-readonly/'
+    | '/tasks/math-utils/'
     | '/tasks/my-pick/'
     | '/tasks/my-promise/'
     | '/tasks/my-readonly/'
+    | '/tasks/omit-by-type/'
+    | '/tasks/pick-by-type/'
     | '/tasks/stringify/'
     | '/tasks/throttle/'
     | '/tasks/tuple-length/'
@@ -169,9 +219,14 @@ export interface FileRouteTypes {
     | '/tasks/detect-type'
     | '/tasks/es5-extends'
     | '/tasks/first-of-array'
+    | '/tasks/make-optional'
+    | '/tasks/make-readonly'
+    | '/tasks/math-utils'
     | '/tasks/my-pick'
     | '/tasks/my-promise'
     | '/tasks/my-readonly'
+    | '/tasks/omit-by-type'
+    | '/tasks/pick-by-type'
     | '/tasks/stringify'
     | '/tasks/throttle'
     | '/tasks/tuple-length'
@@ -185,9 +240,14 @@ export interface FileRouteTypes {
     | '/tasks/detect-type/'
     | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
+    | '/tasks/make-optional/'
+    | '/tasks/make-readonly/'
+    | '/tasks/math-utils/'
     | '/tasks/my-pick/'
     | '/tasks/my-promise/'
     | '/tasks/my-readonly/'
+    | '/tasks/omit-by-type/'
+    | '/tasks/pick-by-type/'
     | '/tasks/stringify/'
     | '/tasks/throttle/'
     | '/tasks/tuple-length/'
@@ -202,9 +262,14 @@ export interface RootRouteChildren {
   TasksDetectTypeIndexRoute: typeof TasksDetectTypeIndexRoute
   TasksEs5ExtendsIndexRoute: typeof TasksEs5ExtendsIndexRoute
   TasksFirstOfArrayIndexRoute: typeof TasksFirstOfArrayIndexRoute
+  TasksMakeOptionalIndexRoute: typeof TasksMakeOptionalIndexRoute
+  TasksMakeReadonlyIndexRoute: typeof TasksMakeReadonlyIndexRoute
+  TasksMathUtilsIndexRoute: typeof TasksMathUtilsIndexRoute
   TasksMyPickIndexRoute: typeof TasksMyPickIndexRoute
   TasksMyPromiseIndexRoute: typeof TasksMyPromiseIndexRoute
   TasksMyReadonlyIndexRoute: typeof TasksMyReadonlyIndexRoute
+  TasksOmitByTypeIndexRoute: typeof TasksOmitByTypeIndexRoute
+  TasksPickByTypeIndexRoute: typeof TasksPickByTypeIndexRoute
   TasksStringifyIndexRoute: typeof TasksStringifyIndexRoute
   TasksThrottleIndexRoute: typeof TasksThrottleIndexRoute
   TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
@@ -256,6 +321,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksStringifyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/pick-by-type/': {
+      id: '/tasks/pick-by-type/'
+      path: '/tasks/pick-by-type'
+      fullPath: '/tasks/pick-by-type/'
+      preLoaderRoute: typeof TasksPickByTypeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/omit-by-type/': {
+      id: '/tasks/omit-by-type/'
+      path: '/tasks/omit-by-type'
+      fullPath: '/tasks/omit-by-type/'
+      preLoaderRoute: typeof TasksOmitByTypeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/my-readonly/': {
       id: '/tasks/my-readonly/'
       path: '/tasks/my-readonly'
@@ -275,6 +354,27 @@ declare module '@tanstack/react-router' {
       path: '/tasks/my-pick'
       fullPath: '/tasks/my-pick/'
       preLoaderRoute: typeof TasksMyPickIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/math-utils/': {
+      id: '/tasks/math-utils/'
+      path: '/tasks/math-utils'
+      fullPath: '/tasks/math-utils/'
+      preLoaderRoute: typeof TasksMathUtilsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/make-readonly/': {
+      id: '/tasks/make-readonly/'
+      path: '/tasks/make-readonly'
+      fullPath: '/tasks/make-readonly/'
+      preLoaderRoute: typeof TasksMakeReadonlyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/make-optional/': {
+      id: '/tasks/make-optional/'
+      path: '/tasks/make-optional'
+      fullPath: '/tasks/make-optional/'
+      preLoaderRoute: typeof TasksMakeOptionalIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/first-of-array/': {
@@ -322,9 +422,14 @@ const rootRouteChildren: RootRouteChildren = {
   TasksDetectTypeIndexRoute: TasksDetectTypeIndexRoute,
   TasksEs5ExtendsIndexRoute: TasksEs5ExtendsIndexRoute,
   TasksFirstOfArrayIndexRoute: TasksFirstOfArrayIndexRoute,
+  TasksMakeOptionalIndexRoute: TasksMakeOptionalIndexRoute,
+  TasksMakeReadonlyIndexRoute: TasksMakeReadonlyIndexRoute,
+  TasksMathUtilsIndexRoute: TasksMathUtilsIndexRoute,
   TasksMyPickIndexRoute: TasksMyPickIndexRoute,
   TasksMyPromiseIndexRoute: TasksMyPromiseIndexRoute,
   TasksMyReadonlyIndexRoute: TasksMyReadonlyIndexRoute,
+  TasksOmitByTypeIndexRoute: TasksOmitByTypeIndexRoute,
+  TasksPickByTypeIndexRoute: TasksPickByTypeIndexRoute,
   TasksStringifyIndexRoute: TasksStringifyIndexRoute,
   TasksThrottleIndexRoute: TasksThrottleIndexRoute,
   TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
