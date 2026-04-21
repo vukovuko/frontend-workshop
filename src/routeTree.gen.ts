@@ -10,14 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TasksUseFileUploadIndexRouteImport } from './routes/tasks/use-file-upload/index'
 import { Route as TasksUploadComponentIndexRouteImport } from './routes/tasks/upload-component/index'
 import { Route as TasksTupleToUnionIndexRouteImport } from './routes/tasks/tuple-to-union/index'
 import { Route as TasksTupleToObjectIndexRouteImport } from './routes/tasks/tuple-to-object/index'
 import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
 import { Route as TasksTreeSelectIndexRouteImport } from './routes/tasks/tree-select/index'
+import { Route as TasksTooltipIndexRouteImport } from './routes/tasks/tooltip/index'
 import { Route as TasksThrottleIndexRouteImport } from './routes/tasks/throttle/index'
 import { Route as TasksTabsIndexRouteImport } from './routes/tasks/tabs/index'
+import { Route as TasksTableIndexRouteImport } from './routes/tasks/table/index'
 import { Route as TasksStringifyIndexRouteImport } from './routes/tasks/stringify/index'
+import { Route as TasksRedditThreadIndexRouteImport } from './routes/tasks/reddit-thread/index'
+import { Route as TasksProgressBarIndexRouteImport } from './routes/tasks/progress-bar/index'
 import { Route as TasksPickByTypeIndexRouteImport } from './routes/tasks/pick-by-type/index'
 import { Route as TasksOmitByTypeIndexRouteImport } from './routes/tasks/omit-by-type/index'
 import { Route as TasksMyReadonlyIndexRouteImport } from './routes/tasks/my-readonly/index'
@@ -41,6 +46,11 @@ import { Route as TasksAbstractComponentIndexRouteImport } from './routes/tasks/
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksUseFileUploadIndexRoute = TasksUseFileUploadIndexRouteImport.update({
+  id: '/tasks/use-file-upload/',
+  path: '/tasks/use-file-upload/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksUploadComponentIndexRoute =
@@ -69,6 +79,11 @@ const TasksTreeSelectIndexRoute = TasksTreeSelectIndexRouteImport.update({
   path: '/tasks/tree-select/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksTooltipIndexRoute = TasksTooltipIndexRouteImport.update({
+  id: '/tasks/tooltip/',
+  path: '/tasks/tooltip/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksThrottleIndexRoute = TasksThrottleIndexRouteImport.update({
   id: '/tasks/throttle/',
   path: '/tasks/throttle/',
@@ -79,9 +94,24 @@ const TasksTabsIndexRoute = TasksTabsIndexRouteImport.update({
   path: '/tasks/tabs/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksTableIndexRoute = TasksTableIndexRouteImport.update({
+  id: '/tasks/table/',
+  path: '/tasks/table/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksStringifyIndexRoute = TasksStringifyIndexRouteImport.update({
   id: '/tasks/stringify/',
   path: '/tasks/stringify/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRedditThreadIndexRoute = TasksRedditThreadIndexRouteImport.update({
+  id: '/tasks/reddit-thread/',
+  path: '/tasks/reddit-thread/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksProgressBarIndexRoute = TasksProgressBarIndexRouteImport.update({
+  id: '/tasks/progress-bar/',
+  path: '/tasks/progress-bar/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksPickByTypeIndexRoute = TasksPickByTypeIndexRouteImport.update({
@@ -203,14 +233,19 @@ export interface FileRoutesByFullPath {
   '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
   '/tasks/omit-by-type/': typeof TasksOmitByTypeIndexRoute
   '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
+  '/tasks/progress-bar/': typeof TasksProgressBarIndexRoute
+  '/tasks/reddit-thread/': typeof TasksRedditThreadIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
+  '/tasks/table/': typeof TasksTableIndexRoute
   '/tasks/tabs/': typeof TasksTabsIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
+  '/tasks/tooltip/': typeof TasksTooltipIndexRoute
   '/tasks/tree-select/': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
   '/tasks/upload-component/': typeof TasksUploadComponentIndexRoute
+  '/tasks/use-file-upload/': typeof TasksUseFileUploadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -233,14 +268,19 @@ export interface FileRoutesByTo {
   '/tasks/my-readonly': typeof TasksMyReadonlyIndexRoute
   '/tasks/omit-by-type': typeof TasksOmitByTypeIndexRoute
   '/tasks/pick-by-type': typeof TasksPickByTypeIndexRoute
+  '/tasks/progress-bar': typeof TasksProgressBarIndexRoute
+  '/tasks/reddit-thread': typeof TasksRedditThreadIndexRoute
   '/tasks/stringify': typeof TasksStringifyIndexRoute
+  '/tasks/table': typeof TasksTableIndexRoute
   '/tasks/tabs': typeof TasksTabsIndexRoute
   '/tasks/throttle': typeof TasksThrottleIndexRoute
+  '/tasks/tooltip': typeof TasksTooltipIndexRoute
   '/tasks/tree-select': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union': typeof TasksTupleToUnionIndexRoute
   '/tasks/upload-component': typeof TasksUploadComponentIndexRoute
+  '/tasks/use-file-upload': typeof TasksUseFileUploadIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -264,14 +304,19 @@ export interface FileRoutesById {
   '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
   '/tasks/omit-by-type/': typeof TasksOmitByTypeIndexRoute
   '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
+  '/tasks/progress-bar/': typeof TasksProgressBarIndexRoute
+  '/tasks/reddit-thread/': typeof TasksRedditThreadIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
+  '/tasks/table/': typeof TasksTableIndexRoute
   '/tasks/tabs/': typeof TasksTabsIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
+  '/tasks/tooltip/': typeof TasksTooltipIndexRoute
   '/tasks/tree-select/': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
   '/tasks/upload-component/': typeof TasksUploadComponentIndexRoute
+  '/tasks/use-file-upload/': typeof TasksUseFileUploadIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -296,14 +341,19 @@ export interface FileRouteTypes {
     | '/tasks/my-readonly/'
     | '/tasks/omit-by-type/'
     | '/tasks/pick-by-type/'
+    | '/tasks/progress-bar/'
+    | '/tasks/reddit-thread/'
     | '/tasks/stringify/'
+    | '/tasks/table/'
     | '/tasks/tabs/'
     | '/tasks/throttle/'
+    | '/tasks/tooltip/'
     | '/tasks/tree-select/'
     | '/tasks/tuple-length/'
     | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
     | '/tasks/upload-component/'
+    | '/tasks/use-file-upload/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -326,14 +376,19 @@ export interface FileRouteTypes {
     | '/tasks/my-readonly'
     | '/tasks/omit-by-type'
     | '/tasks/pick-by-type'
+    | '/tasks/progress-bar'
+    | '/tasks/reddit-thread'
     | '/tasks/stringify'
+    | '/tasks/table'
     | '/tasks/tabs'
     | '/tasks/throttle'
+    | '/tasks/tooltip'
     | '/tasks/tree-select'
     | '/tasks/tuple-length'
     | '/tasks/tuple-to-object'
     | '/tasks/tuple-to-union'
     | '/tasks/upload-component'
+    | '/tasks/use-file-upload'
   id:
     | '__root__'
     | '/'
@@ -356,14 +411,19 @@ export interface FileRouteTypes {
     | '/tasks/my-readonly/'
     | '/tasks/omit-by-type/'
     | '/tasks/pick-by-type/'
+    | '/tasks/progress-bar/'
+    | '/tasks/reddit-thread/'
     | '/tasks/stringify/'
+    | '/tasks/table/'
     | '/tasks/tabs/'
     | '/tasks/throttle/'
+    | '/tasks/tooltip/'
     | '/tasks/tree-select/'
     | '/tasks/tuple-length/'
     | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
     | '/tasks/upload-component/'
+    | '/tasks/use-file-upload/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -387,14 +447,19 @@ export interface RootRouteChildren {
   TasksMyReadonlyIndexRoute: typeof TasksMyReadonlyIndexRoute
   TasksOmitByTypeIndexRoute: typeof TasksOmitByTypeIndexRoute
   TasksPickByTypeIndexRoute: typeof TasksPickByTypeIndexRoute
+  TasksProgressBarIndexRoute: typeof TasksProgressBarIndexRoute
+  TasksRedditThreadIndexRoute: typeof TasksRedditThreadIndexRoute
   TasksStringifyIndexRoute: typeof TasksStringifyIndexRoute
+  TasksTableIndexRoute: typeof TasksTableIndexRoute
   TasksTabsIndexRoute: typeof TasksTabsIndexRoute
   TasksThrottleIndexRoute: typeof TasksThrottleIndexRoute
+  TasksTooltipIndexRoute: typeof TasksTooltipIndexRoute
   TasksTreeSelectIndexRoute: typeof TasksTreeSelectIndexRoute
   TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
   TasksTupleToObjectIndexRoute: typeof TasksTupleToObjectIndexRoute
   TasksTupleToUnionIndexRoute: typeof TasksTupleToUnionIndexRoute
   TasksUploadComponentIndexRoute: typeof TasksUploadComponentIndexRoute
+  TasksUseFileUploadIndexRoute: typeof TasksUseFileUploadIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -404,6 +469,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/use-file-upload/': {
+      id: '/tasks/use-file-upload/'
+      path: '/tasks/use-file-upload'
+      fullPath: '/tasks/use-file-upload/'
+      preLoaderRoute: typeof TasksUseFileUploadIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/upload-component/': {
@@ -441,6 +513,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksTreeSelectIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/tooltip/': {
+      id: '/tasks/tooltip/'
+      path: '/tasks/tooltip'
+      fullPath: '/tasks/tooltip/'
+      preLoaderRoute: typeof TasksTooltipIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/throttle/': {
       id: '/tasks/throttle/'
       path: '/tasks/throttle'
@@ -455,11 +534,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksTabsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/table/': {
+      id: '/tasks/table/'
+      path: '/tasks/table'
+      fullPath: '/tasks/table/'
+      preLoaderRoute: typeof TasksTableIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/stringify/': {
       id: '/tasks/stringify/'
       path: '/tasks/stringify'
       fullPath: '/tasks/stringify/'
       preLoaderRoute: typeof TasksStringifyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/reddit-thread/': {
+      id: '/tasks/reddit-thread/'
+      path: '/tasks/reddit-thread'
+      fullPath: '/tasks/reddit-thread/'
+      preLoaderRoute: typeof TasksRedditThreadIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/progress-bar/': {
+      id: '/tasks/progress-bar/'
+      path: '/tasks/progress-bar'
+      fullPath: '/tasks/progress-bar/'
+      preLoaderRoute: typeof TasksProgressBarIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/pick-by-type/': {
@@ -619,14 +719,19 @@ const rootRouteChildren: RootRouteChildren = {
   TasksMyReadonlyIndexRoute: TasksMyReadonlyIndexRoute,
   TasksOmitByTypeIndexRoute: TasksOmitByTypeIndexRoute,
   TasksPickByTypeIndexRoute: TasksPickByTypeIndexRoute,
+  TasksProgressBarIndexRoute: TasksProgressBarIndexRoute,
+  TasksRedditThreadIndexRoute: TasksRedditThreadIndexRoute,
   TasksStringifyIndexRoute: TasksStringifyIndexRoute,
+  TasksTableIndexRoute: TasksTableIndexRoute,
   TasksTabsIndexRoute: TasksTabsIndexRoute,
   TasksThrottleIndexRoute: TasksThrottleIndexRoute,
+  TasksTooltipIndexRoute: TasksTooltipIndexRoute,
   TasksTreeSelectIndexRoute: TasksTreeSelectIndexRoute,
   TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
   TasksTupleToObjectIndexRoute: TasksTupleToObjectIndexRoute,
   TasksTupleToUnionIndexRoute: TasksTupleToUnionIndexRoute,
   TasksUploadComponentIndexRoute: TasksUploadComponentIndexRoute,
+  TasksUseFileUploadIndexRoute: TasksUseFileUploadIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

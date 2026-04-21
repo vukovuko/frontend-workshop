@@ -137,6 +137,21 @@ const tasks: TaskLink[] = [
     note: 'Native <dialog> + showModal() — focus trap and backdrop for free.',
   },
   {
+    to: '/tasks/tooltip',
+    label: 'Tooltip',
+    note: 'Hover/focus popup with getBoundingClientRect-based auto-flip against a boundary.',
+  },
+  {
+    to: '/tasks/progress-bar',
+    label: 'Progress Bar',
+    note: 'Dual-label clip-path trick so text looks like it changes color as the bar fills.',
+  },
+  {
+    to: '/tasks/use-file-upload',
+    label: 'useFileUpload',
+    note: 'Custom hook for XHR uploads with pause/resume via byte offsets + file.slice.',
+  },
+  {
     to: '/tasks/upload-component',
     label: 'Upload Component',
     note: 'XHR upload with real progress, pause, resume, cancel — posts to /api/upload.',
@@ -145,6 +160,16 @@ const tasks: TaskLink[] = [
     to: '/tasks/gpt-chat',
     label: 'GPT Chat',
     note: 'Streaming fetch + requestAnimationFrame typewriter + Markdown render + abort.',
+  },
+  {
+    to: '/tasks/reddit-thread',
+    label: 'Reddit Thread',
+    note: 'Recursive comment tree with native <details> toggles and indented border lines.',
+  },
+  {
+    to: '/tasks/table',
+    label: 'Table',
+    note: 'Generic <Table<T>> with async pagination, client-side sort, filter, and accumulating page cache.',
   },
 ]
 
