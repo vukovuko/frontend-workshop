@@ -154,6 +154,7 @@
 @layer base {
   html {
     color-scheme: light;
+    interpolate-size: allow-keywords;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
@@ -161,5 +162,20 @@
   code,
   pre {
     font-family: var(--font-mono);
+  }
+
+  details.accordion-item::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      block-size 250ms ease,
+      opacity 200ms ease,
+      content-visibility 250ms allow-discrete;
+    transition-behavior: allow-discrete;
+  }
+  details.accordion-item[open]::details-content {
+    block-size: auto;
+    opacity: 1;
   }
 }

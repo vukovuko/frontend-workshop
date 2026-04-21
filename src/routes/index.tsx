@@ -96,6 +96,11 @@ const tasks: TaskLink[] = [
     note: 'What class extends compiles down to, written by hand.',
   },
   {
+    to: '/tasks/abstract-component',
+    label: 'Abstract Component',
+    note: 'Base class for vanilla UI components with init/render/destroy lifecycle.',
+  },
+  {
     to: '/tasks/deep-equals',
     label: 'Deep Equals',
     note: 'Recursive structural equality with cycle detection.',
@@ -115,6 +120,31 @@ const tasks: TaskLink[] = [
     to: '/tasks/tree-select',
     label: 'Tree Select',
     note: 'Tri-state checkbox tree with auto bubble and propagate.',
+  },
+  {
+    to: '/tasks/accordion',
+    label: 'Accordion',
+    note: 'Native <details>/<summary> with a custom open indicator, zero useState.',
+  },
+  {
+    to: '/tasks/tabs',
+    label: 'Tabs',
+    note: 'Compound <Tabs>/<Tab> with optional portal target for the content panel.',
+  },
+  {
+    to: '/tasks/dialog',
+    label: 'Dialog',
+    note: 'Native <dialog> + showModal() — focus trap and backdrop for free.',
+  },
+  {
+    to: '/tasks/upload-component',
+    label: 'Upload Component',
+    note: 'XHR upload with real progress, pause, resume, cancel — posts to /api/upload.',
+  },
+  {
+    to: '/tasks/gpt-chat',
+    label: 'GPT Chat',
+    note: 'Streaming fetch + requestAnimationFrame typewriter + Markdown render + abort.',
   },
 ]
 

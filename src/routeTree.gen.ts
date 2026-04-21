@@ -10,11 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TasksUploadComponentIndexRouteImport } from './routes/tasks/upload-component/index'
 import { Route as TasksTupleToUnionIndexRouteImport } from './routes/tasks/tuple-to-union/index'
 import { Route as TasksTupleToObjectIndexRouteImport } from './routes/tasks/tuple-to-object/index'
 import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
 import { Route as TasksTreeSelectIndexRouteImport } from './routes/tasks/tree-select/index'
 import { Route as TasksThrottleIndexRouteImport } from './routes/tasks/throttle/index'
+import { Route as TasksTabsIndexRouteImport } from './routes/tasks/tabs/index'
 import { Route as TasksStringifyIndexRouteImport } from './routes/tasks/stringify/index'
 import { Route as TasksPickByTypeIndexRouteImport } from './routes/tasks/pick-by-type/index'
 import { Route as TasksOmitByTypeIndexRouteImport } from './routes/tasks/omit-by-type/index'
@@ -25,18 +27,28 @@ import { Route as TasksMergeIndexRouteImport } from './routes/tasks/merge/index'
 import { Route as TasksMathUtilsIndexRouteImport } from './routes/tasks/math-utils/index'
 import { Route as TasksMakeReadonlyIndexRouteImport } from './routes/tasks/make-readonly/index'
 import { Route as TasksMakeOptionalIndexRouteImport } from './routes/tasks/make-optional/index'
+import { Route as TasksGptChatIndexRouteImport } from './routes/tasks/gpt-chat/index'
 import { Route as TasksFirstOfArrayIndexRouteImport } from './routes/tasks/first-of-array/index'
 import { Route as TasksEs5ExtendsIndexRouteImport } from './routes/tasks/es5-extends/index'
+import { Route as TasksDialogIndexRouteImport } from './routes/tasks/dialog/index'
 import { Route as TasksDetectTypeIndexRouteImport } from './routes/tasks/detect-type/index'
 import { Route as TasksDeepEqualsIndexRouteImport } from './routes/tasks/deep-equals/index'
 import { Route as TasksDebounceIndexRouteImport } from './routes/tasks/debounce/index'
 import { Route as TasksAppendToObjectIndexRouteImport } from './routes/tasks/append-to-object/index'
+import { Route as TasksAccordionIndexRouteImport } from './routes/tasks/accordion/index'
+import { Route as TasksAbstractComponentIndexRouteImport } from './routes/tasks/abstract-component/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksUploadComponentIndexRoute =
+  TasksUploadComponentIndexRouteImport.update({
+    id: '/tasks/upload-component/',
+    path: '/tasks/upload-component/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const TasksTupleToUnionIndexRoute = TasksTupleToUnionIndexRouteImport.update({
   id: '/tasks/tuple-to-union/',
   path: '/tasks/tuple-to-union/',
@@ -60,6 +72,11 @@ const TasksTreeSelectIndexRoute = TasksTreeSelectIndexRouteImport.update({
 const TasksThrottleIndexRoute = TasksThrottleIndexRouteImport.update({
   id: '/tasks/throttle/',
   path: '/tasks/throttle/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksTabsIndexRoute = TasksTabsIndexRouteImport.update({
+  id: '/tasks/tabs/',
+  path: '/tasks/tabs/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksStringifyIndexRoute = TasksStringifyIndexRouteImport.update({
@@ -112,6 +129,11 @@ const TasksMakeOptionalIndexRoute = TasksMakeOptionalIndexRouteImport.update({
   path: '/tasks/make-optional/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksGptChatIndexRoute = TasksGptChatIndexRouteImport.update({
+  id: '/tasks/gpt-chat/',
+  path: '/tasks/gpt-chat/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksFirstOfArrayIndexRoute = TasksFirstOfArrayIndexRouteImport.update({
   id: '/tasks/first-of-array/',
   path: '/tasks/first-of-array/',
@@ -120,6 +142,11 @@ const TasksFirstOfArrayIndexRoute = TasksFirstOfArrayIndexRouteImport.update({
 const TasksEs5ExtendsIndexRoute = TasksEs5ExtendsIndexRouteImport.update({
   id: '/tasks/es5-extends/',
   path: '/tasks/es5-extends/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksDialogIndexRoute = TasksDialogIndexRouteImport.update({
+  id: '/tasks/dialog/',
+  path: '/tasks/dialog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksDetectTypeIndexRoute = TasksDetectTypeIndexRouteImport.update({
@@ -143,15 +170,30 @@ const TasksAppendToObjectIndexRoute =
     path: '/tasks/append-to-object/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const TasksAccordionIndexRoute = TasksAccordionIndexRouteImport.update({
+  id: '/tasks/accordion/',
+  path: '/tasks/accordion/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksAbstractComponentIndexRoute =
+  TasksAbstractComponentIndexRouteImport.update({
+    id: '/tasks/abstract-component/',
+    path: '/tasks/abstract-component/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/tasks/abstract-component/': typeof TasksAbstractComponentIndexRoute
+  '/tasks/accordion/': typeof TasksAccordionIndexRoute
   '/tasks/append-to-object/': typeof TasksAppendToObjectIndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
   '/tasks/deep-equals/': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
+  '/tasks/dialog/': typeof TasksDialogIndexRoute
   '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/gpt-chat/': typeof TasksGptChatIndexRoute
   '/tasks/make-optional/': typeof TasksMakeOptionalIndexRoute
   '/tasks/make-readonly/': typeof TasksMakeReadonlyIndexRoute
   '/tasks/math-utils/': typeof TasksMathUtilsIndexRoute
@@ -162,20 +204,26 @@ export interface FileRoutesByFullPath {
   '/tasks/omit-by-type/': typeof TasksOmitByTypeIndexRoute
   '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
+  '/tasks/tabs/': typeof TasksTabsIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tree-select/': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
+  '/tasks/upload-component/': typeof TasksUploadComponentIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/tasks/abstract-component': typeof TasksAbstractComponentIndexRoute
+  '/tasks/accordion': typeof TasksAccordionIndexRoute
   '/tasks/append-to-object': typeof TasksAppendToObjectIndexRoute
   '/tasks/debounce': typeof TasksDebounceIndexRoute
   '/tasks/deep-equals': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type': typeof TasksDetectTypeIndexRoute
+  '/tasks/dialog': typeof TasksDialogIndexRoute
   '/tasks/es5-extends': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/gpt-chat': typeof TasksGptChatIndexRoute
   '/tasks/make-optional': typeof TasksMakeOptionalIndexRoute
   '/tasks/make-readonly': typeof TasksMakeReadonlyIndexRoute
   '/tasks/math-utils': typeof TasksMathUtilsIndexRoute
@@ -186,21 +234,27 @@ export interface FileRoutesByTo {
   '/tasks/omit-by-type': typeof TasksOmitByTypeIndexRoute
   '/tasks/pick-by-type': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify': typeof TasksStringifyIndexRoute
+  '/tasks/tabs': typeof TasksTabsIndexRoute
   '/tasks/throttle': typeof TasksThrottleIndexRoute
   '/tasks/tree-select': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union': typeof TasksTupleToUnionIndexRoute
+  '/tasks/upload-component': typeof TasksUploadComponentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/tasks/abstract-component/': typeof TasksAbstractComponentIndexRoute
+  '/tasks/accordion/': typeof TasksAccordionIndexRoute
   '/tasks/append-to-object/': typeof TasksAppendToObjectIndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
   '/tasks/deep-equals/': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
+  '/tasks/dialog/': typeof TasksDialogIndexRoute
   '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/gpt-chat/': typeof TasksGptChatIndexRoute
   '/tasks/make-optional/': typeof TasksMakeOptionalIndexRoute
   '/tasks/make-readonly/': typeof TasksMakeReadonlyIndexRoute
   '/tasks/math-utils/': typeof TasksMathUtilsIndexRoute
@@ -211,22 +265,28 @@ export interface FileRoutesById {
   '/tasks/omit-by-type/': typeof TasksOmitByTypeIndexRoute
   '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
+  '/tasks/tabs/': typeof TasksTabsIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tree-select/': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
+  '/tasks/upload-component/': typeof TasksUploadComponentIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/tasks/abstract-component/'
+    | '/tasks/accordion/'
     | '/tasks/append-to-object/'
     | '/tasks/debounce/'
     | '/tasks/deep-equals/'
     | '/tasks/detect-type/'
+    | '/tasks/dialog/'
     | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
+    | '/tasks/gpt-chat/'
     | '/tasks/make-optional/'
     | '/tasks/make-readonly/'
     | '/tasks/math-utils/'
@@ -237,20 +297,26 @@ export interface FileRouteTypes {
     | '/tasks/omit-by-type/'
     | '/tasks/pick-by-type/'
     | '/tasks/stringify/'
+    | '/tasks/tabs/'
     | '/tasks/throttle/'
     | '/tasks/tree-select/'
     | '/tasks/tuple-length/'
     | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
+    | '/tasks/upload-component/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/tasks/abstract-component'
+    | '/tasks/accordion'
     | '/tasks/append-to-object'
     | '/tasks/debounce'
     | '/tasks/deep-equals'
     | '/tasks/detect-type'
+    | '/tasks/dialog'
     | '/tasks/es5-extends'
     | '/tasks/first-of-array'
+    | '/tasks/gpt-chat'
     | '/tasks/make-optional'
     | '/tasks/make-readonly'
     | '/tasks/math-utils'
@@ -261,20 +327,26 @@ export interface FileRouteTypes {
     | '/tasks/omit-by-type'
     | '/tasks/pick-by-type'
     | '/tasks/stringify'
+    | '/tasks/tabs'
     | '/tasks/throttle'
     | '/tasks/tree-select'
     | '/tasks/tuple-length'
     | '/tasks/tuple-to-object'
     | '/tasks/tuple-to-union'
+    | '/tasks/upload-component'
   id:
     | '__root__'
     | '/'
+    | '/tasks/abstract-component/'
+    | '/tasks/accordion/'
     | '/tasks/append-to-object/'
     | '/tasks/debounce/'
     | '/tasks/deep-equals/'
     | '/tasks/detect-type/'
+    | '/tasks/dialog/'
     | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
+    | '/tasks/gpt-chat/'
     | '/tasks/make-optional/'
     | '/tasks/make-readonly/'
     | '/tasks/math-utils/'
@@ -285,21 +357,27 @@ export interface FileRouteTypes {
     | '/tasks/omit-by-type/'
     | '/tasks/pick-by-type/'
     | '/tasks/stringify/'
+    | '/tasks/tabs/'
     | '/tasks/throttle/'
     | '/tasks/tree-select/'
     | '/tasks/tuple-length/'
     | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
+    | '/tasks/upload-component/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  TasksAbstractComponentIndexRoute: typeof TasksAbstractComponentIndexRoute
+  TasksAccordionIndexRoute: typeof TasksAccordionIndexRoute
   TasksAppendToObjectIndexRoute: typeof TasksAppendToObjectIndexRoute
   TasksDebounceIndexRoute: typeof TasksDebounceIndexRoute
   TasksDeepEqualsIndexRoute: typeof TasksDeepEqualsIndexRoute
   TasksDetectTypeIndexRoute: typeof TasksDetectTypeIndexRoute
+  TasksDialogIndexRoute: typeof TasksDialogIndexRoute
   TasksEs5ExtendsIndexRoute: typeof TasksEs5ExtendsIndexRoute
   TasksFirstOfArrayIndexRoute: typeof TasksFirstOfArrayIndexRoute
+  TasksGptChatIndexRoute: typeof TasksGptChatIndexRoute
   TasksMakeOptionalIndexRoute: typeof TasksMakeOptionalIndexRoute
   TasksMakeReadonlyIndexRoute: typeof TasksMakeReadonlyIndexRoute
   TasksMathUtilsIndexRoute: typeof TasksMathUtilsIndexRoute
@@ -310,11 +388,13 @@ export interface RootRouteChildren {
   TasksOmitByTypeIndexRoute: typeof TasksOmitByTypeIndexRoute
   TasksPickByTypeIndexRoute: typeof TasksPickByTypeIndexRoute
   TasksStringifyIndexRoute: typeof TasksStringifyIndexRoute
+  TasksTabsIndexRoute: typeof TasksTabsIndexRoute
   TasksThrottleIndexRoute: typeof TasksThrottleIndexRoute
   TasksTreeSelectIndexRoute: typeof TasksTreeSelectIndexRoute
   TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
   TasksTupleToObjectIndexRoute: typeof TasksTupleToObjectIndexRoute
   TasksTupleToUnionIndexRoute: typeof TasksTupleToUnionIndexRoute
+  TasksUploadComponentIndexRoute: typeof TasksUploadComponentIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -324,6 +404,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/upload-component/': {
+      id: '/tasks/upload-component/'
+      path: '/tasks/upload-component'
+      fullPath: '/tasks/upload-component/'
+      preLoaderRoute: typeof TasksUploadComponentIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/tuple-to-union/': {
@@ -359,6 +446,13 @@ declare module '@tanstack/react-router' {
       path: '/tasks/throttle'
       fullPath: '/tasks/throttle/'
       preLoaderRoute: typeof TasksThrottleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/tabs/': {
+      id: '/tasks/tabs/'
+      path: '/tasks/tabs'
+      fullPath: '/tasks/tabs/'
+      preLoaderRoute: typeof TasksTabsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/stringify/': {
@@ -431,6 +525,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksMakeOptionalIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/gpt-chat/': {
+      id: '/tasks/gpt-chat/'
+      path: '/tasks/gpt-chat'
+      fullPath: '/tasks/gpt-chat/'
+      preLoaderRoute: typeof TasksGptChatIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/first-of-array/': {
       id: '/tasks/first-of-array/'
       path: '/tasks/first-of-array'
@@ -443,6 +544,13 @@ declare module '@tanstack/react-router' {
       path: '/tasks/es5-extends'
       fullPath: '/tasks/es5-extends/'
       preLoaderRoute: typeof TasksEs5ExtendsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/dialog/': {
+      id: '/tasks/dialog/'
+      path: '/tasks/dialog'
+      fullPath: '/tasks/dialog/'
+      preLoaderRoute: typeof TasksDialogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/detect-type/': {
@@ -473,17 +581,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksAppendToObjectIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/accordion/': {
+      id: '/tasks/accordion/'
+      path: '/tasks/accordion'
+      fullPath: '/tasks/accordion/'
+      preLoaderRoute: typeof TasksAccordionIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/abstract-component/': {
+      id: '/tasks/abstract-component/'
+      path: '/tasks/abstract-component'
+      fullPath: '/tasks/abstract-component/'
+      preLoaderRoute: typeof TasksAbstractComponentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  TasksAbstractComponentIndexRoute: TasksAbstractComponentIndexRoute,
+  TasksAccordionIndexRoute: TasksAccordionIndexRoute,
   TasksAppendToObjectIndexRoute: TasksAppendToObjectIndexRoute,
   TasksDebounceIndexRoute: TasksDebounceIndexRoute,
   TasksDeepEqualsIndexRoute: TasksDeepEqualsIndexRoute,
   TasksDetectTypeIndexRoute: TasksDetectTypeIndexRoute,
+  TasksDialogIndexRoute: TasksDialogIndexRoute,
   TasksEs5ExtendsIndexRoute: TasksEs5ExtendsIndexRoute,
   TasksFirstOfArrayIndexRoute: TasksFirstOfArrayIndexRoute,
+  TasksGptChatIndexRoute: TasksGptChatIndexRoute,
   TasksMakeOptionalIndexRoute: TasksMakeOptionalIndexRoute,
   TasksMakeReadonlyIndexRoute: TasksMakeReadonlyIndexRoute,
   TasksMathUtilsIndexRoute: TasksMathUtilsIndexRoute,
@@ -494,11 +620,13 @@ const rootRouteChildren: RootRouteChildren = {
   TasksOmitByTypeIndexRoute: TasksOmitByTypeIndexRoute,
   TasksPickByTypeIndexRoute: TasksPickByTypeIndexRoute,
   TasksStringifyIndexRoute: TasksStringifyIndexRoute,
+  TasksTabsIndexRoute: TasksTabsIndexRoute,
   TasksThrottleIndexRoute: TasksThrottleIndexRoute,
   TasksTreeSelectIndexRoute: TasksTreeSelectIndexRoute,
   TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
   TasksTupleToObjectIndexRoute: TasksTupleToObjectIndexRoute,
   TasksTupleToUnionIndexRoute: TasksTupleToUnionIndexRoute,
+  TasksUploadComponentIndexRoute: TasksUploadComponentIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
