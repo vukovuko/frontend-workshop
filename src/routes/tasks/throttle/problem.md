@@ -1,7 +1,5 @@
 # Throttle
 
-**Difficulty: Easy**
-
 ## Problem
 
 Implement a `throttle` function that limits the rate at which a function can fire. The function will execute at most once per specified time period.

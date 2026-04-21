@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TasksTupleToUnionIndexRouteImport } from './routes/tasks/tuple-to-union/index'
 import { Route as TasksTupleToObjectIndexRouteImport } from './routes/tasks/tuple-to-object/index'
 import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
+import { Route as TasksTreeSelectIndexRouteImport } from './routes/tasks/tree-select/index'
 import { Route as TasksThrottleIndexRouteImport } from './routes/tasks/throttle/index'
 import { Route as TasksStringifyIndexRouteImport } from './routes/tasks/stringify/index'
 import { Route as TasksPickByTypeIndexRouteImport } from './routes/tasks/pick-by-type/index'
@@ -20,6 +21,7 @@ import { Route as TasksOmitByTypeIndexRouteImport } from './routes/tasks/omit-by
 import { Route as TasksMyReadonlyIndexRouteImport } from './routes/tasks/my-readonly/index'
 import { Route as TasksMyPromiseIndexRouteImport } from './routes/tasks/my-promise/index'
 import { Route as TasksMyPickIndexRouteImport } from './routes/tasks/my-pick/index'
+import { Route as TasksMergeIndexRouteImport } from './routes/tasks/merge/index'
 import { Route as TasksMathUtilsIndexRouteImport } from './routes/tasks/math-utils/index'
 import { Route as TasksMakeReadonlyIndexRouteImport } from './routes/tasks/make-readonly/index'
 import { Route as TasksMakeOptionalIndexRouteImport } from './routes/tasks/make-optional/index'
@@ -28,6 +30,7 @@ import { Route as TasksEs5ExtendsIndexRouteImport } from './routes/tasks/es5-ext
 import { Route as TasksDetectTypeIndexRouteImport } from './routes/tasks/detect-type/index'
 import { Route as TasksDeepEqualsIndexRouteImport } from './routes/tasks/deep-equals/index'
 import { Route as TasksDebounceIndexRouteImport } from './routes/tasks/debounce/index'
+import { Route as TasksAppendToObjectIndexRouteImport } from './routes/tasks/append-to-object/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,6 +50,11 @@ const TasksTupleToObjectIndexRoute = TasksTupleToObjectIndexRouteImport.update({
 const TasksTupleLengthIndexRoute = TasksTupleLengthIndexRouteImport.update({
   id: '/tasks/tuple-length/',
   path: '/tasks/tuple-length/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksTreeSelectIndexRoute = TasksTreeSelectIndexRouteImport.update({
+  id: '/tasks/tree-select/',
+  path: '/tasks/tree-select/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksThrottleIndexRoute = TasksThrottleIndexRouteImport.update({
@@ -82,6 +90,11 @@ const TasksMyPromiseIndexRoute = TasksMyPromiseIndexRouteImport.update({
 const TasksMyPickIndexRoute = TasksMyPickIndexRouteImport.update({
   id: '/tasks/my-pick/',
   path: '/tasks/my-pick/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMergeIndexRoute = TasksMergeIndexRouteImport.update({
+  id: '/tasks/merge/',
+  path: '/tasks/merge/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksMathUtilsIndexRoute = TasksMathUtilsIndexRouteImport.update({
@@ -124,9 +137,16 @@ const TasksDebounceIndexRoute = TasksDebounceIndexRouteImport.update({
   path: '/tasks/debounce/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksAppendToObjectIndexRoute =
+  TasksAppendToObjectIndexRouteImport.update({
+    id: '/tasks/append-to-object/',
+    path: '/tasks/append-to-object/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/tasks/append-to-object/': typeof TasksAppendToObjectIndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
   '/tasks/deep-equals/': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
@@ -135,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/tasks/make-optional/': typeof TasksMakeOptionalIndexRoute
   '/tasks/make-readonly/': typeof TasksMakeReadonlyIndexRoute
   '/tasks/math-utils/': typeof TasksMathUtilsIndexRoute
+  '/tasks/merge/': typeof TasksMergeIndexRoute
   '/tasks/my-pick/': typeof TasksMyPickIndexRoute
   '/tasks/my-promise/': typeof TasksMyPromiseIndexRoute
   '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
@@ -142,12 +163,14 @@ export interface FileRoutesByFullPath {
   '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
+  '/tasks/tree-select/': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/tasks/append-to-object': typeof TasksAppendToObjectIndexRoute
   '/tasks/debounce': typeof TasksDebounceIndexRoute
   '/tasks/deep-equals': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type': typeof TasksDetectTypeIndexRoute
@@ -156,6 +179,7 @@ export interface FileRoutesByTo {
   '/tasks/make-optional': typeof TasksMakeOptionalIndexRoute
   '/tasks/make-readonly': typeof TasksMakeReadonlyIndexRoute
   '/tasks/math-utils': typeof TasksMathUtilsIndexRoute
+  '/tasks/merge': typeof TasksMergeIndexRoute
   '/tasks/my-pick': typeof TasksMyPickIndexRoute
   '/tasks/my-promise': typeof TasksMyPromiseIndexRoute
   '/tasks/my-readonly': typeof TasksMyReadonlyIndexRoute
@@ -163,6 +187,7 @@ export interface FileRoutesByTo {
   '/tasks/pick-by-type': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify': typeof TasksStringifyIndexRoute
   '/tasks/throttle': typeof TasksThrottleIndexRoute
+  '/tasks/tree-select': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union': typeof TasksTupleToUnionIndexRoute
@@ -170,6 +195,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/tasks/append-to-object/': typeof TasksAppendToObjectIndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
   '/tasks/deep-equals/': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
@@ -178,6 +204,7 @@ export interface FileRoutesById {
   '/tasks/make-optional/': typeof TasksMakeOptionalIndexRoute
   '/tasks/make-readonly/': typeof TasksMakeReadonlyIndexRoute
   '/tasks/math-utils/': typeof TasksMathUtilsIndexRoute
+  '/tasks/merge/': typeof TasksMergeIndexRoute
   '/tasks/my-pick/': typeof TasksMyPickIndexRoute
   '/tasks/my-promise/': typeof TasksMyPromiseIndexRoute
   '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
@@ -185,6 +212,7 @@ export interface FileRoutesById {
   '/tasks/pick-by-type/': typeof TasksPickByTypeIndexRoute
   '/tasks/stringify/': typeof TasksStringifyIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
+  '/tasks/tree-select/': typeof TasksTreeSelectIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
   '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
@@ -193,6 +221,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/tasks/append-to-object/'
     | '/tasks/debounce/'
     | '/tasks/deep-equals/'
     | '/tasks/detect-type/'
@@ -201,6 +230,7 @@ export interface FileRouteTypes {
     | '/tasks/make-optional/'
     | '/tasks/make-readonly/'
     | '/tasks/math-utils/'
+    | '/tasks/merge/'
     | '/tasks/my-pick/'
     | '/tasks/my-promise/'
     | '/tasks/my-readonly/'
@@ -208,12 +238,14 @@ export interface FileRouteTypes {
     | '/tasks/pick-by-type/'
     | '/tasks/stringify/'
     | '/tasks/throttle/'
+    | '/tasks/tree-select/'
     | '/tasks/tuple-length/'
     | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/tasks/append-to-object'
     | '/tasks/debounce'
     | '/tasks/deep-equals'
     | '/tasks/detect-type'
@@ -222,6 +254,7 @@ export interface FileRouteTypes {
     | '/tasks/make-optional'
     | '/tasks/make-readonly'
     | '/tasks/math-utils'
+    | '/tasks/merge'
     | '/tasks/my-pick'
     | '/tasks/my-promise'
     | '/tasks/my-readonly'
@@ -229,12 +262,14 @@ export interface FileRouteTypes {
     | '/tasks/pick-by-type'
     | '/tasks/stringify'
     | '/tasks/throttle'
+    | '/tasks/tree-select'
     | '/tasks/tuple-length'
     | '/tasks/tuple-to-object'
     | '/tasks/tuple-to-union'
   id:
     | '__root__'
     | '/'
+    | '/tasks/append-to-object/'
     | '/tasks/debounce/'
     | '/tasks/deep-equals/'
     | '/tasks/detect-type/'
@@ -243,6 +278,7 @@ export interface FileRouteTypes {
     | '/tasks/make-optional/'
     | '/tasks/make-readonly/'
     | '/tasks/math-utils/'
+    | '/tasks/merge/'
     | '/tasks/my-pick/'
     | '/tasks/my-promise/'
     | '/tasks/my-readonly/'
@@ -250,6 +286,7 @@ export interface FileRouteTypes {
     | '/tasks/pick-by-type/'
     | '/tasks/stringify/'
     | '/tasks/throttle/'
+    | '/tasks/tree-select/'
     | '/tasks/tuple-length/'
     | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
@@ -257,6 +294,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  TasksAppendToObjectIndexRoute: typeof TasksAppendToObjectIndexRoute
   TasksDebounceIndexRoute: typeof TasksDebounceIndexRoute
   TasksDeepEqualsIndexRoute: typeof TasksDeepEqualsIndexRoute
   TasksDetectTypeIndexRoute: typeof TasksDetectTypeIndexRoute
@@ -265,6 +303,7 @@ export interface RootRouteChildren {
   TasksMakeOptionalIndexRoute: typeof TasksMakeOptionalIndexRoute
   TasksMakeReadonlyIndexRoute: typeof TasksMakeReadonlyIndexRoute
   TasksMathUtilsIndexRoute: typeof TasksMathUtilsIndexRoute
+  TasksMergeIndexRoute: typeof TasksMergeIndexRoute
   TasksMyPickIndexRoute: typeof TasksMyPickIndexRoute
   TasksMyPromiseIndexRoute: typeof TasksMyPromiseIndexRoute
   TasksMyReadonlyIndexRoute: typeof TasksMyReadonlyIndexRoute
@@ -272,6 +311,7 @@ export interface RootRouteChildren {
   TasksPickByTypeIndexRoute: typeof TasksPickByTypeIndexRoute
   TasksStringifyIndexRoute: typeof TasksStringifyIndexRoute
   TasksThrottleIndexRoute: typeof TasksThrottleIndexRoute
+  TasksTreeSelectIndexRoute: typeof TasksTreeSelectIndexRoute
   TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
   TasksTupleToObjectIndexRoute: typeof TasksTupleToObjectIndexRoute
   TasksTupleToUnionIndexRoute: typeof TasksTupleToUnionIndexRoute
@@ -305,6 +345,13 @@ declare module '@tanstack/react-router' {
       path: '/tasks/tuple-length'
       fullPath: '/tasks/tuple-length/'
       preLoaderRoute: typeof TasksTupleLengthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/tree-select/': {
+      id: '/tasks/tree-select/'
+      path: '/tasks/tree-select'
+      fullPath: '/tasks/tree-select/'
+      preLoaderRoute: typeof TasksTreeSelectIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/throttle/': {
@@ -354,6 +401,13 @@ declare module '@tanstack/react-router' {
       path: '/tasks/my-pick'
       fullPath: '/tasks/my-pick/'
       preLoaderRoute: typeof TasksMyPickIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/merge/': {
+      id: '/tasks/merge/'
+      path: '/tasks/merge'
+      fullPath: '/tasks/merge/'
+      preLoaderRoute: typeof TasksMergeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/math-utils/': {
@@ -412,11 +466,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksDebounceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/append-to-object/': {
+      id: '/tasks/append-to-object/'
+      path: '/tasks/append-to-object'
+      fullPath: '/tasks/append-to-object/'
+      preLoaderRoute: typeof TasksAppendToObjectIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  TasksAppendToObjectIndexRoute: TasksAppendToObjectIndexRoute,
   TasksDebounceIndexRoute: TasksDebounceIndexRoute,
   TasksDeepEqualsIndexRoute: TasksDeepEqualsIndexRoute,
   TasksDetectTypeIndexRoute: TasksDetectTypeIndexRoute,
@@ -425,6 +487,7 @@ const rootRouteChildren: RootRouteChildren = {
   TasksMakeOptionalIndexRoute: TasksMakeOptionalIndexRoute,
   TasksMakeReadonlyIndexRoute: TasksMakeReadonlyIndexRoute,
   TasksMathUtilsIndexRoute: TasksMathUtilsIndexRoute,
+  TasksMergeIndexRoute: TasksMergeIndexRoute,
   TasksMyPickIndexRoute: TasksMyPickIndexRoute,
   TasksMyPromiseIndexRoute: TasksMyPromiseIndexRoute,
   TasksMyReadonlyIndexRoute: TasksMyReadonlyIndexRoute,
@@ -432,6 +495,7 @@ const rootRouteChildren: RootRouteChildren = {
   TasksPickByTypeIndexRoute: TasksPickByTypeIndexRoute,
   TasksStringifyIndexRoute: TasksStringifyIndexRoute,
   TasksThrottleIndexRoute: TasksThrottleIndexRoute,
+  TasksTreeSelectIndexRoute: TasksTreeSelectIndexRoute,
   TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
   TasksTupleToObjectIndexRoute: TasksTupleToObjectIndexRoute,
   TasksTupleToUnionIndexRoute: TasksTupleToUnionIndexRoute,

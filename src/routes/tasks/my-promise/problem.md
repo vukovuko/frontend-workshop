@@ -1,7 +1,5 @@
 # Promise
 
-**Difficulty: Hard**
-
 ## Problem
 
 Implement your own `MyPromise` class that follows the Promises/A+ specification.

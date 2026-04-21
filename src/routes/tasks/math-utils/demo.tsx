@@ -58,7 +58,7 @@ export function Demo() {
           className="w-full"
         />
         <div className="text-sm font-mono">
-          t = {t.toFixed(2)} → lerp(0, 100, t) = {lerp(0, 100, t).toFixed(2)}
+          t = {t.toFixed(2)}, lerp(0, 100, t) = {lerp(0, 100, t).toFixed(2)}
         </div>
       </section>
 
