@@ -10,9 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TasksTupleToUnionIndexRouteImport } from './routes/tasks/tuple-to-union/index'
 import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
+import { Route as TasksThrottleIndexRouteImport } from './routes/tasks/throttle/index'
+import { Route as TasksMyPickIndexRouteImport } from './routes/tasks/my-pick/index'
 import { Route as TasksFirstOfArrayIndexRouteImport } from './routes/tasks/first-of-array/index'
+import { Route as TasksEs5ExtendsIndexRouteImport } from './routes/tasks/es5-extends/index'
 import { Route as TasksDetectTypeIndexRouteImport } from './routes/tasks/detect-type/index'
+import { Route as TasksDeepEqualsIndexRouteImport } from './routes/tasks/deep-equals/index'
 import { Route as TasksDebounceIndexRouteImport } from './routes/tasks/debounce/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -20,9 +25,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksTupleToUnionIndexRoute = TasksTupleToUnionIndexRouteImport.update({
+  id: '/tasks/tuple-to-union/',
+  path: '/tasks/tuple-to-union/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksTupleLengthIndexRoute = TasksTupleLengthIndexRouteImport.update({
   id: '/tasks/tuple-length/',
   path: '/tasks/tuple-length/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksThrottleIndexRoute = TasksThrottleIndexRouteImport.update({
+  id: '/tasks/throttle/',
+  path: '/tasks/throttle/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMyPickIndexRoute = TasksMyPickIndexRouteImport.update({
+  id: '/tasks/my-pick/',
+  path: '/tasks/my-pick/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksFirstOfArrayIndexRoute = TasksFirstOfArrayIndexRouteImport.update({
@@ -30,9 +50,19 @@ const TasksFirstOfArrayIndexRoute = TasksFirstOfArrayIndexRouteImport.update({
   path: '/tasks/first-of-array/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksEs5ExtendsIndexRoute = TasksEs5ExtendsIndexRouteImport.update({
+  id: '/tasks/es5-extends/',
+  path: '/tasks/es5-extends/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksDetectTypeIndexRoute = TasksDetectTypeIndexRouteImport.update({
   id: '/tasks/detect-type/',
   path: '/tasks/detect-type/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksDeepEqualsIndexRoute = TasksDeepEqualsIndexRouteImport.update({
+  id: '/tasks/deep-equals/',
+  path: '/tasks/deep-equals/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksDebounceIndexRoute = TasksDebounceIndexRouteImport.update({
@@ -44,55 +74,90 @@ const TasksDebounceIndexRoute = TasksDebounceIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
+  '/tasks/deep-equals/': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
+  '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/my-pick/': typeof TasksMyPickIndexRoute
+  '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
+  '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/tasks/debounce': typeof TasksDebounceIndexRoute
+  '/tasks/deep-equals': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type': typeof TasksDetectTypeIndexRoute
+  '/tasks/es5-extends': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/my-pick': typeof TasksMyPickIndexRoute
+  '/tasks/throttle': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
+  '/tasks/tuple-to-union': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/tasks/debounce/': typeof TasksDebounceIndexRoute
+  '/tasks/deep-equals/': typeof TasksDeepEqualsIndexRoute
   '/tasks/detect-type/': typeof TasksDetectTypeIndexRoute
+  '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
+  '/tasks/my-pick/': typeof TasksMyPickIndexRoute
+  '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
+  '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/tasks/debounce/'
+    | '/tasks/deep-equals/'
     | '/tasks/detect-type/'
+    | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
+    | '/tasks/my-pick/'
+    | '/tasks/throttle/'
     | '/tasks/tuple-length/'
+    | '/tasks/tuple-to-union/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/tasks/debounce'
+    | '/tasks/deep-equals'
     | '/tasks/detect-type'
+    | '/tasks/es5-extends'
     | '/tasks/first-of-array'
+    | '/tasks/my-pick'
+    | '/tasks/throttle'
     | '/tasks/tuple-length'
+    | '/tasks/tuple-to-union'
   id:
     | '__root__'
     | '/'
     | '/tasks/debounce/'
+    | '/tasks/deep-equals/'
     | '/tasks/detect-type/'
+    | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
+    | '/tasks/my-pick/'
+    | '/tasks/throttle/'
     | '/tasks/tuple-length/'
+    | '/tasks/tuple-to-union/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   TasksDebounceIndexRoute: typeof TasksDebounceIndexRoute
+  TasksDeepEqualsIndexRoute: typeof TasksDeepEqualsIndexRoute
   TasksDetectTypeIndexRoute: typeof TasksDetectTypeIndexRoute
+  TasksEs5ExtendsIndexRoute: typeof TasksEs5ExtendsIndexRoute
   TasksFirstOfArrayIndexRoute: typeof TasksFirstOfArrayIndexRoute
+  TasksMyPickIndexRoute: typeof TasksMyPickIndexRoute
+  TasksThrottleIndexRoute: typeof TasksThrottleIndexRoute
   TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
+  TasksTupleToUnionIndexRoute: typeof TasksTupleToUnionIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -104,11 +169,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/tuple-to-union/': {
+      id: '/tasks/tuple-to-union/'
+      path: '/tasks/tuple-to-union'
+      fullPath: '/tasks/tuple-to-union/'
+      preLoaderRoute: typeof TasksTupleToUnionIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/tuple-length/': {
       id: '/tasks/tuple-length/'
       path: '/tasks/tuple-length'
       fullPath: '/tasks/tuple-length/'
       preLoaderRoute: typeof TasksTupleLengthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/throttle/': {
+      id: '/tasks/throttle/'
+      path: '/tasks/throttle'
+      fullPath: '/tasks/throttle/'
+      preLoaderRoute: typeof TasksThrottleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/my-pick/': {
+      id: '/tasks/my-pick/'
+      path: '/tasks/my-pick'
+      fullPath: '/tasks/my-pick/'
+      preLoaderRoute: typeof TasksMyPickIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/first-of-array/': {
@@ -118,11 +204,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksFirstOfArrayIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/es5-extends/': {
+      id: '/tasks/es5-extends/'
+      path: '/tasks/es5-extends'
+      fullPath: '/tasks/es5-extends/'
+      preLoaderRoute: typeof TasksEs5ExtendsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/detect-type/': {
       id: '/tasks/detect-type/'
       path: '/tasks/detect-type'
       fullPath: '/tasks/detect-type/'
       preLoaderRoute: typeof TasksDetectTypeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/deep-equals/': {
+      id: '/tasks/deep-equals/'
+      path: '/tasks/deep-equals'
+      fullPath: '/tasks/deep-equals/'
+      preLoaderRoute: typeof TasksDeepEqualsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/debounce/': {
@@ -138,9 +238,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   TasksDebounceIndexRoute: TasksDebounceIndexRoute,
+  TasksDeepEqualsIndexRoute: TasksDeepEqualsIndexRoute,
   TasksDetectTypeIndexRoute: TasksDetectTypeIndexRoute,
+  TasksEs5ExtendsIndexRoute: TasksEs5ExtendsIndexRoute,
   TasksFirstOfArrayIndexRoute: TasksFirstOfArrayIndexRoute,
+  TasksMyPickIndexRoute: TasksMyPickIndexRoute,
+  TasksThrottleIndexRoute: TasksThrottleIndexRoute,
   TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
+  TasksTupleToUnionIndexRoute: TasksTupleToUnionIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

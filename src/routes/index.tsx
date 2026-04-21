@@ -35,6 +35,34 @@ function Home() {
             First of Array
           </Link>
         </li>
+        <li>
+          <Link to="/tasks/throttle" className="text-primary hover:underline underline-offset-4">
+            Throttle
+          </Link>
+        </li>
+        <li>
+          <Link to="/tasks/es5-extends" className="text-primary hover:underline underline-offset-4">
+            ES5 Extends
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/tasks/tuple-to-union"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            Tuple to Union
+          </Link>
+        </li>
+        <li>
+          <Link to="/tasks/my-pick" className="text-primary hover:underline underline-offset-4">
+            Pick
+          </Link>
+        </li>
+        <li>
+          <Link to="/tasks/deep-equals" className="text-primary hover:underline underline-offset-4">
+            Deep Equals
+          </Link>
+        </li>
       </ul>
     </main>
   )
