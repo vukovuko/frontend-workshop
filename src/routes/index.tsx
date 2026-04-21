@@ -59,8 +59,31 @@ function Home() {
           </Link>
         </li>
         <li>
+          <Link to="/tasks/my-readonly" className="text-primary hover:underline underline-offset-4">
+            Readonly
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/tasks/tuple-to-object"
+            className="text-primary hover:underline underline-offset-4"
+          >
+            Tuple to Object
+          </Link>
+        </li>
+        <li>
           <Link to="/tasks/deep-equals" className="text-primary hover:underline underline-offset-4">
             Deep Equals
+          </Link>
+        </li>
+        <li>
+          <Link to="/tasks/stringify" className="text-primary hover:underline underline-offset-4">
+            Stringify
+          </Link>
+        </li>
+        <li>
+          <Link to="/tasks/my-promise" className="text-primary hover:underline underline-offset-4">
+            Promise
           </Link>
         </li>
       </ul>

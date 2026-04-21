@@ -11,8 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TasksTupleToUnionIndexRouteImport } from './routes/tasks/tuple-to-union/index'
+import { Route as TasksTupleToObjectIndexRouteImport } from './routes/tasks/tuple-to-object/index'
 import { Route as TasksTupleLengthIndexRouteImport } from './routes/tasks/tuple-length/index'
 import { Route as TasksThrottleIndexRouteImport } from './routes/tasks/throttle/index'
+import { Route as TasksStringifyIndexRouteImport } from './routes/tasks/stringify/index'
+import { Route as TasksMyReadonlyIndexRouteImport } from './routes/tasks/my-readonly/index'
+import { Route as TasksMyPromiseIndexRouteImport } from './routes/tasks/my-promise/index'
 import { Route as TasksMyPickIndexRouteImport } from './routes/tasks/my-pick/index'
 import { Route as TasksFirstOfArrayIndexRouteImport } from './routes/tasks/first-of-array/index'
 import { Route as TasksEs5ExtendsIndexRouteImport } from './routes/tasks/es5-extends/index'
@@ -30,6 +34,11 @@ const TasksTupleToUnionIndexRoute = TasksTupleToUnionIndexRouteImport.update({
   path: '/tasks/tuple-to-union/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksTupleToObjectIndexRoute = TasksTupleToObjectIndexRouteImport.update({
+  id: '/tasks/tuple-to-object/',
+  path: '/tasks/tuple-to-object/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksTupleLengthIndexRoute = TasksTupleLengthIndexRouteImport.update({
   id: '/tasks/tuple-length/',
   path: '/tasks/tuple-length/',
@@ -38,6 +47,21 @@ const TasksTupleLengthIndexRoute = TasksTupleLengthIndexRouteImport.update({
 const TasksThrottleIndexRoute = TasksThrottleIndexRouteImport.update({
   id: '/tasks/throttle/',
   path: '/tasks/throttle/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksStringifyIndexRoute = TasksStringifyIndexRouteImport.update({
+  id: '/tasks/stringify/',
+  path: '/tasks/stringify/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMyReadonlyIndexRoute = TasksMyReadonlyIndexRouteImport.update({
+  id: '/tasks/my-readonly/',
+  path: '/tasks/my-readonly/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksMyPromiseIndexRoute = TasksMyPromiseIndexRouteImport.update({
+  id: '/tasks/my-promise/',
+  path: '/tasks/my-promise/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksMyPickIndexRoute = TasksMyPickIndexRouteImport.update({
@@ -79,8 +103,12 @@ export interface FileRoutesByFullPath {
   '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
   '/tasks/my-pick/': typeof TasksMyPickIndexRoute
+  '/tasks/my-promise/': typeof TasksMyPromiseIndexRoute
+  '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
+  '/tasks/stringify/': typeof TasksStringifyIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
+  '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRoutesByTo {
@@ -91,8 +119,12 @@ export interface FileRoutesByTo {
   '/tasks/es5-extends': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array': typeof TasksFirstOfArrayIndexRoute
   '/tasks/my-pick': typeof TasksMyPickIndexRoute
+  '/tasks/my-promise': typeof TasksMyPromiseIndexRoute
+  '/tasks/my-readonly': typeof TasksMyReadonlyIndexRoute
+  '/tasks/stringify': typeof TasksStringifyIndexRoute
   '/tasks/throttle': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length': typeof TasksTupleLengthIndexRoute
+  '/tasks/tuple-to-object': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRoutesById {
@@ -104,8 +136,12 @@ export interface FileRoutesById {
   '/tasks/es5-extends/': typeof TasksEs5ExtendsIndexRoute
   '/tasks/first-of-array/': typeof TasksFirstOfArrayIndexRoute
   '/tasks/my-pick/': typeof TasksMyPickIndexRoute
+  '/tasks/my-promise/': typeof TasksMyPromiseIndexRoute
+  '/tasks/my-readonly/': typeof TasksMyReadonlyIndexRoute
+  '/tasks/stringify/': typeof TasksStringifyIndexRoute
   '/tasks/throttle/': typeof TasksThrottleIndexRoute
   '/tasks/tuple-length/': typeof TasksTupleLengthIndexRoute
+  '/tasks/tuple-to-object/': typeof TasksTupleToObjectIndexRoute
   '/tasks/tuple-to-union/': typeof TasksTupleToUnionIndexRoute
 }
 export interface FileRouteTypes {
@@ -118,8 +154,12 @@ export interface FileRouteTypes {
     | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
     | '/tasks/my-pick/'
+    | '/tasks/my-promise/'
+    | '/tasks/my-readonly/'
+    | '/tasks/stringify/'
     | '/tasks/throttle/'
     | '/tasks/tuple-length/'
+    | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -130,8 +170,12 @@ export interface FileRouteTypes {
     | '/tasks/es5-extends'
     | '/tasks/first-of-array'
     | '/tasks/my-pick'
+    | '/tasks/my-promise'
+    | '/tasks/my-readonly'
+    | '/tasks/stringify'
     | '/tasks/throttle'
     | '/tasks/tuple-length'
+    | '/tasks/tuple-to-object'
     | '/tasks/tuple-to-union'
   id:
     | '__root__'
@@ -142,8 +186,12 @@ export interface FileRouteTypes {
     | '/tasks/es5-extends/'
     | '/tasks/first-of-array/'
     | '/tasks/my-pick/'
+    | '/tasks/my-promise/'
+    | '/tasks/my-readonly/'
+    | '/tasks/stringify/'
     | '/tasks/throttle/'
     | '/tasks/tuple-length/'
+    | '/tasks/tuple-to-object/'
     | '/tasks/tuple-to-union/'
   fileRoutesById: FileRoutesById
 }
@@ -155,8 +203,12 @@ export interface RootRouteChildren {
   TasksEs5ExtendsIndexRoute: typeof TasksEs5ExtendsIndexRoute
   TasksFirstOfArrayIndexRoute: typeof TasksFirstOfArrayIndexRoute
   TasksMyPickIndexRoute: typeof TasksMyPickIndexRoute
+  TasksMyPromiseIndexRoute: typeof TasksMyPromiseIndexRoute
+  TasksMyReadonlyIndexRoute: typeof TasksMyReadonlyIndexRoute
+  TasksStringifyIndexRoute: typeof TasksStringifyIndexRoute
   TasksThrottleIndexRoute: typeof TasksThrottleIndexRoute
   TasksTupleLengthIndexRoute: typeof TasksTupleLengthIndexRoute
+  TasksTupleToObjectIndexRoute: typeof TasksTupleToObjectIndexRoute
   TasksTupleToUnionIndexRoute: typeof TasksTupleToUnionIndexRoute
 }
 
@@ -176,6 +228,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksTupleToUnionIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/tuple-to-object/': {
+      id: '/tasks/tuple-to-object/'
+      path: '/tasks/tuple-to-object'
+      fullPath: '/tasks/tuple-to-object/'
+      preLoaderRoute: typeof TasksTupleToObjectIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks/tuple-length/': {
       id: '/tasks/tuple-length/'
       path: '/tasks/tuple-length'
@@ -188,6 +247,27 @@ declare module '@tanstack/react-router' {
       path: '/tasks/throttle'
       fullPath: '/tasks/throttle/'
       preLoaderRoute: typeof TasksThrottleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/stringify/': {
+      id: '/tasks/stringify/'
+      path: '/tasks/stringify'
+      fullPath: '/tasks/stringify/'
+      preLoaderRoute: typeof TasksStringifyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/my-readonly/': {
+      id: '/tasks/my-readonly/'
+      path: '/tasks/my-readonly'
+      fullPath: '/tasks/my-readonly/'
+      preLoaderRoute: typeof TasksMyReadonlyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/my-promise/': {
+      id: '/tasks/my-promise/'
+      path: '/tasks/my-promise'
+      fullPath: '/tasks/my-promise/'
+      preLoaderRoute: typeof TasksMyPromiseIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks/my-pick/': {
@@ -243,8 +323,12 @@ const rootRouteChildren: RootRouteChildren = {
   TasksEs5ExtendsIndexRoute: TasksEs5ExtendsIndexRoute,
   TasksFirstOfArrayIndexRoute: TasksFirstOfArrayIndexRoute,
   TasksMyPickIndexRoute: TasksMyPickIndexRoute,
+  TasksMyPromiseIndexRoute: TasksMyPromiseIndexRoute,
+  TasksMyReadonlyIndexRoute: TasksMyReadonlyIndexRoute,
+  TasksStringifyIndexRoute: TasksStringifyIndexRoute,
   TasksThrottleIndexRoute: TasksThrottleIndexRoute,
   TasksTupleLengthIndexRoute: TasksTupleLengthIndexRoute,
+  TasksTupleToObjectIndexRoute: TasksTupleToObjectIndexRoute,
   TasksTupleToUnionIndexRoute: TasksTupleToUnionIndexRoute,
 }
 export const routeTree = rootRouteImport

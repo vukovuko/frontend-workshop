@@ -1,27 +1,23 @@
 import { detectType } from '../detect-type/solution'
 
 // biome-ignore lint/suspicious/noExplicitAny: signature requires it
-export function deepEquals(a: any, b: any, store: Map<object, object> = new Map()): boolean {
-  const typeA = detectType(a)
-  const typeB = detectType(b)
+export function deepEquals(a: any, b: any, store: Map<object, Set<object>> = new Map()): boolean {
+  if (a === b) return true
 
-  if (typeA !== typeB) return false
-
-  if (typeA !== 'object' && typeA !== 'array') {
-    if (typeA === 'number' && Number.isNaN(a) && Number.isNaN(b)) return true
-    return a === b
-  }
-
-  if (store.has(a)) return store.get(a) === b
-  store.set(a, b)
-
-  if (typeA === 'array') {
-    if (a.length !== b.length) return false
-    for (let i = 0; i < a.length; i++) {
-      if (!deepEquals(a[i], b[i], store)) return false
-    }
+  if (typeof a === 'number' && typeof b === 'number' && Number.isNaN(a) && Number.isNaN(b)) {
     return true
   }
+
+  const typeA = detectType(a)
+  const typeB = detectType(b)
+  if (typeA !== typeB) return false
+
+  if (typeA !== 'object' && typeA !== 'array') return false
+
+  const seen = store.get(a)
+  if (seen?.has(b)) return true
+  if (!seen) store.set(a, new Set([b]))
+  else seen.add(b)
 
   const keysA = Object.keys(a)
   const keysB = Object.keys(b)
@@ -31,5 +27,6 @@ export function deepEquals(a: any, b: any, store: Map<object, object> = new Map(
     if (!Object.hasOwn(b, key)) return false
     if (!deepEquals(a[key], b[key], store)) return false
   }
+
   return true
 }

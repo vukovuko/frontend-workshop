@@ -22,8 +22,6 @@ export type TType =
 
 // biome-ignore lint/suspicious/noExplicitAny: signature requires it
 export function detectType(value: any): TType {
-  if (value === null) return 'null'
-  if (value === undefined) return 'undefined'
-
-  return Object.getPrototypeOf(value)?.constructor?.name?.toLowerCase() ?? 'object'
+  if (value == null) return `${value}` as TType
+  return (Object.getPrototypeOf(value)?.constructor?.name ?? 'object').toLowerCase() as TType
 }
