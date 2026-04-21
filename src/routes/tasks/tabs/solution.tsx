@@ -3,6 +3,8 @@ import React, {
   type PropsWithChildren,
   type ReactElement,
   type RefObject,
+  useLayoutEffect,
+  useRef,
   useState,
 } from 'react'
 import { createPortal } from 'react-dom'
@@ -28,10 +30,8 @@ export function Tab({ name, isActive }: TTabProps) {
         data-tab-name={name}
         aria-selected={isActive}
         aria-controls="tab-panel"
-        className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-          isActive
-            ? 'bg-primary text-primary-foreground'
-            : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+        className={`relative z-10 px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+          isActive ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
         }`}
       >
         {name}
@@ -46,6 +46,22 @@ export function Tabs({ defaultTab, children, target }: TTabsProps) {
   const hasDefault = defaultTab != null && items.some((c) => c.props.name === defaultTab)
   const [activeTab, setActiveTab] = useState<string>(hasDefault ? defaultTab! : firstName)
 
+  const listRef = useRef<HTMLUListElement>(null)
+  const [pill, setPill] = useState<{ left: number; width: number } | null>(null)
+
+  useLayoutEffect(() => {
+    const list = listRef.current
+    if (!list) return
+    const measure = () => {
+      const el = list.querySelector<HTMLElement>(`[data-tab-name="${activeTab}"]`)
+      if (el) setPill({ left: el.offsetLeft, width: el.offsetWidth })
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(list)
+    return () => ro.disconnect()
+  }, [activeTab])
+
   const handleTabClick = ({ target: t }: MouseEvent<HTMLUListElement>) => {
     if (t instanceof HTMLButtonElement) {
       const tabName = t.dataset['tabName']
@@ -59,10 +75,20 @@ export function Tabs({ defaultTab, children, target }: TTabsProps) {
     <div>
       <nav>
         <ul
+          ref={listRef}
           role="tablist"
           onClickCapture={handleTabClick}
-          className="flex flex-row items-start gap-2 list-none p-0 m-0"
+          className="relative flex flex-row items-start gap-2 list-none p-0 m-0"
         >
+          <span
+            aria-hidden
+            className="absolute top-0 h-full rounded-md bg-primary transition-[left,width] duration-300 ease-out pointer-events-none"
+            style={{
+              left: pill?.left ?? 0,
+              width: pill?.width ?? 0,
+              opacity: pill ? 1 : 0,
+            }}
+          />
           {items.map((child) =>
             React.cloneElement(child, { isActive: child.props.name === activeTab }),
           )}
